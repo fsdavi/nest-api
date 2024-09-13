@@ -23,6 +23,12 @@ describe('UserEntity', () => {
     expect(typeof sut.name).toEqual('string')
   })
 
+  it('setter should update the name using', () => {
+    sut['name'] = 'new name'
+    expect(sut.name).toEqual('new name')
+    expect(typeof sut.name).toEqual('string')
+  })
+
   it('should return the email', () => {
     expect(sut.email).toEqual(props.email)
     expect(typeof sut.email).toEqual('string')
@@ -33,8 +39,24 @@ describe('UserEntity', () => {
     expect(typeof sut.password).toEqual('string')
   })
 
+  it('setter should update the password', () => {
+    sut['password'] = 'new password'
+    expect(sut.password).toEqual('new password')
+    expect(typeof sut.password).toEqual('string')
+  })
+
   it('should return the createdAt', () => {
     expect(sut.createdAt).toEqual(props.createdAt)
     expect(sut.createdAt).toBeInstanceOf(Date)
+  })
+
+  it('updateName method should update name', () => {
+    sut.updateName('updated name')
+    expect(sut.name).toEqual('updated name')
+  })
+
+  it('updatePassword method should update name', () => {
+    sut.updatePassword('updated password')
+    expect(sut.password).toEqual('updated password')
   })
 })
